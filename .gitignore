@@ -1,0 +1,21 @@
+.DS_Store
+
+# Backend
+backend/node_modules/
+backend/.npm-cache/
+backend/database.sqlite
+backend/data.json
+backend/dist/
+backend/.env
+
+# Frontend
+frontend/**/node_modules/
+frontend/**/.expo/
+frontend/**/.npm-cache/
+frontend/**/.env
+
+# General
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

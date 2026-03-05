@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calories & Protein Tracker</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>Calories & Protein Tracker</h1>
+      <p>Add food items as admin, then log meals and track daily nutrition.</p>
+    </header>
+
+    <section class="panel" id="auth-panel">
+      <h2>Login</h2>
+      <p class="small">Demo accounts: <code>admin / admin123</code> and <code>user / user123</code></p>
+      <form id="login-form" class="form-grid">
+        <label>
+          Username
+          <input type="text" name="username" required />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" required />
+        </label>
+        <button type="submit">Login</button>
+      </form>
+      <div class="auth-row" id="session-row">
+        <p id="session-info" class="status"></p>
+        <button id="logout-btn" type="button">Logout</button>
+      </div>
+      <p id="auth-status" class="status"></p>
+    </section>
+
+    <section class="panel hidden" id="admin-panel">
+      <h2>Admin: Add Food Item</h2>
+      <form id="food-form" class="form-grid">
+        <label>
+          Item Name
+          <input type="text" name="name" placeholder="Whole Egg" required />
+        </label>
+        <label>
+          Unit Description
+          <input type="text" name="unit" placeholder="1 whole egg" required />
+        </label>
+        <label>
+          Calories Per Unit
+          <input type="number" name="calories" min="0" step="0.01" placeholder="60" required />
+        </label>
+        <label>
+          Protein (g) Per Unit
+          <input type="number" name="protein" min="0" step="0.01" placeholder="6" required />
+        </label>
+        <button type="submit">Add Food</button>
+      </form>
+      <p id="food-status" class="status"></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Unit</th>
+              <th>Calories</th>
+              <th>Protein (g)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="food-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="user-panel">
+      <h2>User: Add Meal Item</h2>
+      <form id="entry-form" class="form-grid">
+        <label>
+          Date
+          <input type="date" name="date" required />
+        </label>
+        <label>
+          Meal Type
+          <select name="mealType" required>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="snacks">Snacks</option>
+            <option value="dinner">Dinner</option>
+          </select>
+        </label>
+        <label>
+          Food Item
+          <select name="foodId" id="food-select" required></select>
+        </label>
+        <label>
+          Quantity (units)
+          <input type="number" name="quantity" min="0.1" step="0.1" value="1" required />
+        </label>
+        <button type="submit">Add to Meal</button>
+      </form>
+      <p id="entry-status" class="status"></p>
+    </section>
+
+    <section class="panel hidden" id="summary-panel">
+      <h2>Daily Summary</h2>
+      <form id="summary-form" class="summary-form">
+        <input type="date" name="date" required />
+        <button type="submit">Show Summary</button>
+      </form>
+      <div id="summary-output"></div>
+    </section>
+
+    <section class="panel hidden" id="history-panel">
+      <h2>Daily History</h2>
+      <button id="refresh-history" type="button">Refresh History</button>
+      <div id="history-output"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

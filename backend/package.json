@@ -1,0 +1,26 @@
+{
+  "name": "caloriesprotiencalculator",
+  "version": "1.0.0",
+  "description": "Calories and protein tracker for meals",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && node dist/server.js",
+    "dev": "tsx src/server.ts"
+  },
+  "keywords": [
+    "calories",
+    "protein",
+    "meal-tracker"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
